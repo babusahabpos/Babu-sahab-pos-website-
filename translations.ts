@@ -1,4 +1,3 @@
-
 export const translations = {
   en: {
     navFeatures: "Features",
@@ -6,7 +5,7 @@ export const translations = {
     heroBadge: "Premium Mobile POS Solution",
     heroTitle: "Speed Up Your Restaurant",
     heroSubtitle: "Elite Billing & Inventory Management for modern merchants. All premium features for just ₹99/month.",
-    heroOffer: "SPECIAL OFFER | 2 MONTH SUBSCRIPTION FREE",
+    heroOffer: "SPECIAL OFFER | 2 MONTH FREE SUBSCRIPTION",
     demoBtn: "Demo Now",
     downloadBtn: "Download APK",
     licenseInfo: "Premium License: ₹99/monthly",

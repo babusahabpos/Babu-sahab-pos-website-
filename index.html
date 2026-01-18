@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BaBu SAHAB POS - Premium APK Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      // Crucial shim to prevent "process is not defined" error in the browser
+      // This is the main reason for the white screen on Vercel
+      window.process = { 
+        env: { 
+          API_KEY: "" 
+        },
+        cwd: () => "/"
+      };
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+        }
+        .lemon-yellow-glow {
+            text-shadow: 0 0 20px rgba(255, 247, 0, 0.5);
         }
     </style>
 <script type="importmap">
@@ -24,7 +36,9 @@
 }
 </script>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-[#121212] text-slate-100">
     <div id="root"></div>
+    <!-- Entry point for the application -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
