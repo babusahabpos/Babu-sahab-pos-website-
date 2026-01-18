@@ -1,0 +1,65 @@
+
+export const translations = {
+  en: {
+    navFeatures: "Features",
+    navAbout: "About",
+    heroBadge: "Premium Mobile POS Solution",
+    heroTitle: "Speed Up Your Restaurant",
+    heroSubtitle: "Elite Billing & Inventory Management for modern merchants. All premium features for just ₹99/month.",
+    heroOffer: "SPECIAL OFFER | 2 MONTH SUBSCRIPTION FREE",
+    demoBtn: "Demo Now",
+    downloadBtn: "Download APK",
+    licenseInfo: "Premium License: ₹99/monthly",
+    featuresBadge: "Merchant Modules",
+    featuresTitle: "Everything your shop needs",
+    featuresSubtitle: "BaBu SAHAB POS is built to handle the hustle of your business with powerful modules and ease of use.",
+    whyTitle: "Why Use BaBu SAHAB POS?",
+    whySubtitle: "Experience the ultimate speed and reliability for your business.",
+    whyPoints: [
+      "FAST 2 MONTH SUBSCRIPTION FREE",
+      "Very lowest subscription",
+      "Easy billing",
+      "Auto menu update",
+      "Instant approval",
+      "24×7 help support"
+    ],
+    footerDesc: "Elite Point-of-Sale solution designed for fast-paced restaurants and retail shops. Secure, high-speed, and reliable.",
+    footerSolutions: "Solutions",
+    footerCompany: "Company",
+    footerCredit: "© 2024 BaBu SAHAB POS. HIGH-SPEED BILLING HUB.",
+    whatsappDemoMsg: "Hello! I want to see a demo of BaBu SAHAB POS.",
+    cinematicTitle: "The Future of Smart Billing",
+    cinematicSubtitle: "Designed to accelerate your business growth. Premium dashboard and high-speed performance."
+  },
+  bn: {
+    navFeatures: "বৈশিষ্ট্য",
+    navAbout: "সম্পর্কে",
+    heroBadge: "প্রিমিয়াম মোবাইল POS সলিউশন",
+    heroTitle: "আপনার রেস্টুরেন্টকে করুন দ্রুত",
+    heroSubtitle: "আধুনিক ব্যবসায়ীদের জন্য এলিট বিলিং এবং ইনভেন্টরি ম্যানেজমেন্ট। মাত্র ৯৯ টাকা/মাসে সব প্রিমিয়াম ফিচার।",
+    heroOffer: "স্পেশাল অফার | ২ মাসের সাবস্ক্রিপশন একদম ফ্রি",
+    demoBtn: "ডেমো দেখুন",
+    downloadBtn: "APK ডাউনলোড করুন",
+    licenseInfo: "প্রিমিয়াম লাইসেন্স: ৯৯ টাকা/মাস",
+    featuresBadge: "মার্চেন্ট মডিউল",
+    featuresTitle: "আপনার দোকানের প্রয়োজনীয় সবকিছু",
+    featuresSubtitle: "BaBu SAHAB POS আপনার ব্যবসার গতি বাড়ানোর জন্য শক্তিশালী মডিউল দিয়ে তৈরি।",
+    whyTitle: "কেন BaBu SAHAB POS ব্যবহার করবেন?",
+    whySubtitle: "আপনার ব্যবসার জন্য সেরা গতি এবং নির্ভরযোগ্যতা অনুভব করুন।",
+    whyPoints: [
+      "দ্রুত ২ মাসের সাবস্ক্রিপশন ফ্রি",
+      "সবচেয়ে কম সাবস্ক্রিপশন চার্জ",
+      "সহজ বিলিং সিস্টেম",
+      "অটো মেনু আপডেট",
+      "তাত্ক্ষণিক অ্যাপ্রুভাল",
+      "২৪×৭ হেল্প সাপোর্ট"
+    ],
+    footerDesc: "দ্রুতগতিসম্পন্ন রেস্টুরেন্ট এবং রিটেইল শপের জন্য ডিজাইন করা এলিট পয়েন্ট-অফ-সেল সলিউশন। নিরাপদ এবং নির্ভরযোগ্য।",
+    footerSolutions: "সলিউশন",
+    footerCompany: "কোম্পানি",
+    footerCredit: "© ২০২৪ BaBu SAHAB POS. হাই-স্পিড বিলিং হাব।",
+    whatsappDemoMsg: "নমস্কার! আমি BaBu SAHAB POS এর একটি ডেমো দেখতে চাই।",
+    cinematicTitle: "স্মার্ট বিলিংয়ের ভবিষ্যৎ",
+    cinematicSubtitle: "আপনার ব্যবসার উন্নতির জন্য ডিজাইন করা হয়েছে। প্রিমিয়াম ড্যাশবোর্ড এবং হাই-স্পিড পারফরম্যান্স।"
+  }
+};
