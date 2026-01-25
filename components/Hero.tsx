@@ -13,25 +13,27 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
   const whatsappNumber = '917003548323';
   const whatsappMsg = encodeURIComponent(t.whatsappDemoMsg);
   
-  const [stats, setStats] = useState({ avg: 4.8, total: 120 });
+  const [stats, setStats] = useState({ avg: 4.8, total: 1000 });
 
   useEffect(() => {
     const updateStats = () => {
       const saved = localStorage.getItem('babu_pos_reviews');
       if (saved) {
         const reviews: Review[] = JSON.parse(saved);
+        const baseCount = 1000;
         if (reviews.length > 0) {
           const totalStars = reviews.reduce((acc, curr) => acc + curr.rating, 0);
           setStats({
             avg: parseFloat((totalStars / reviews.length).toFixed(1)),
-            total: reviews.length
+            total: baseCount + reviews.length
           });
+        } else {
+          setStats({ avg: 4.8, total: baseCount });
         }
       }
     };
     
     updateStats();
-    // Listen for storage changes in same window (custom event or simple poll)
     const interval = setInterval(updateStats, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -102,10 +104,10 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
               </button>
             </div>
 
-            {/* NEW: Review Button with Stats */}
+            {/* Review Button with 1k+ Stats */}
             <button 
               onClick={scrollToReviews}
-              className="flex items-center gap-4 bg-white/5 border border-white/10 hover:bg-white/10 px-8 py-4 rounded-2xl transition-all group"
+              className="flex items-center gap-4 bg-white/5 border border-white/10 hover:bg-white/10 px-8 py-4 rounded-2xl transition-all group animate-in fade-in slide-in-from-bottom-2 duration-700"
             >
               <div className="flex text-[#FFF700] text-xl">
                 {'★'.repeat(Math.floor(stats.avg))}
@@ -113,11 +115,18 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
               </div>
               <div className="text-left">
                 <p className="text-white font-black text-sm uppercase tracking-widest">{stats.avg}/5 {t.reviewBtnLabel}</p>
-                <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">From {stats.total} total customers</p>
+                <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+                  From <span className="text-white">{stats.total}+</span> Trusted Merchants
+                </p>
               </div>
-              <svg className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-              </svg>
+              <div className="flex -space-x-2 ml-2">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-6 h-6 rounded-full border-2 border-[#121212] bg-slate-800 flex items-center justify-center text-[8px] font-bold text-white overflow-hidden">
+                    <img src={`https://i.pravatar.cc/50?img=${i+10}`} alt="user" />
+                  </div>
+                ))}
+                <div className="w-6 h-6 rounded-full border-2 border-[#121212] bg-red-600 flex items-center justify-center text-[7px] font-black text-white">+</div>
+              </div>
             </button>
           </div>
 
