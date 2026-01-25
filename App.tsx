@@ -7,6 +7,7 @@ import WhyChoose from './components/WhyChoose';
 import Footer from './components/Footer';
 import BookingForm from './components/BookingForm';
 import GeminiAssistant from './components/GeminiAssistant';
+import ReviewSystem from './components/ReviewSystem';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'bn'>('en');
@@ -19,9 +20,9 @@ const App: React.FC = () => {
         <Features lang={lang} />
         <WhyChoose lang={lang} />
         <BookingForm />
+        <ReviewSystem lang={lang} />
       </main>
       <Footer lang={lang} />
-      {/* Added GeminiAssistant to make the AI feature available on the page */}
       <GeminiAssistant />
     </div>
   );

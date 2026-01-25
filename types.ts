@@ -20,3 +20,19 @@ export interface BookingData {
   phone: string;
   device: string;
 }
+
+export interface ReviewReply {
+  id: string;
+  author: string;
+  text: string;
+  date: string;
+}
+
+export interface Review {
+  id: string;
+  userName: string;
+  rating: number;
+  comment: string;
+  date: string;
+  replies: ReviewReply[];
+}
