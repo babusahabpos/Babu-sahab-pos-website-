@@ -36,3 +36,13 @@ export interface Review {
   date: string;
   replies: ReviewReply[];
 }
+
+export interface DemoRequest {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  device: string;
+  date: string;
+  status: 'pending' | 'completed';
+}

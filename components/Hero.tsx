@@ -39,6 +39,10 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
   }, []);
 
   const downloadApk = () => {
+    // Track download history
+    const currentDownloads = parseInt(localStorage.getItem('babu_apk_downloads') || '0');
+    localStorage.setItem('babu_apk_downloads', (currentDownloads + 1).toString());
+    
     window.open(dropboxApkUrl, '_blank');
   };
 
