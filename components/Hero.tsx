@@ -9,7 +9,8 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ lang }) => {
   const t = translations[lang];
-  const dropboxApkUrl = 'https://www.dropbox.com/scl/fi/35jn1ivle2nzhzezyjrdr/babusahabapp3887088-hv1elj-2.apk?rlkey=u3kkk1pymbdqz9q1kvspx5rdv&st=znas4l6s&dl=1';
+  // Updated Google Drive direct download link
+  const apkDownloadUrl = 'https://drive.google.com/uc?export=download&id=1GHJ8WLe6MCzeBegvr_6p0qTkfe8rX4dJ';
   const whatsappNumber = '917003548323';
   const whatsappMsg = encodeURIComponent(t.whatsappDemoMsg);
   
@@ -39,11 +40,11 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
   }, []);
 
   const downloadApk = () => {
-    // Track download history
+    // Track download history in localStorage
     const currentDownloads = parseInt(localStorage.getItem('babu_apk_downloads') || '0');
     localStorage.setItem('babu_apk_downloads', (currentDownloads + 1).toString());
     
-    window.open(dropboxApkUrl, '_blank');
+    window.open(apkDownloadUrl, '_blank');
   };
 
   const scrollToReviews = () => {
