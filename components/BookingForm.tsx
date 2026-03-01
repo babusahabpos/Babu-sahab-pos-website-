@@ -31,6 +31,20 @@ const BookingForm: React.FC = () => {
       const existingRequests = JSON.parse(localStorage.getItem('babu_registration_requests') || '[]');
       localStorage.setItem('babu_registration_requests', JSON.stringify([newRequest, ...existingRequests]));
 
+      // Construct WhatsApp message for Admin
+      const adminWhatsApp = '917003548323';
+      const message = `*New Business Registration Request*\n\n` +
+                      `*Restaurant:* ${formData.restaurantName}\n` +
+                      `*Owner:* ${formData.ownerName}\n` +
+                      `*Phone:* ${formData.phone}\n` +
+                      `*Email:* ${formData.email}\n\n` +
+                      `_Sent from BaBu SAHAB POS Website_`;
+      
+      const whatsappUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, '_blank');
+
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStep('success');
