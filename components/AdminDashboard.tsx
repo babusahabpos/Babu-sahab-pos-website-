@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { DemoRequest } from '../types';
+import { RegistrationRequest } from '../types';
 
 interface AdminDashboardProps {
   lang: 'en' | 'bn';
@@ -8,7 +8,7 @@ interface AdminDashboardProps {
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [requests, setRequests] = useState<DemoRequest[]>([]);
+  const [requests, setRequests] = useState<RegistrationRequest[]>([]);
   const [downloadCount, setDownloadCount] = useState(0);
   const ADMIN_PIN = "1992";
 
@@ -21,7 +21,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
   }, [isAdmin]);
 
   const loadData = () => {
-    const savedRequests = JSON.parse(localStorage.getItem('babu_demo_requests') || '[]');
+    const savedRequests = JSON.parse(localStorage.getItem('babu_registration_requests') || '[]');
     const savedDownloads = parseInt(localStorage.getItem('babu_apk_downloads') || '0');
     setRequests(savedRequests);
     setDownloadCount(savedDownloads);
@@ -39,13 +39,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
   const deleteRequest = (id: string) => {
     const updated = requests.filter(r => r.id !== id);
     setRequests(updated);
-    localStorage.setItem('babu_demo_requests', JSON.stringify(updated));
+    localStorage.setItem('babu_registration_requests', JSON.stringify(updated));
   };
 
   const completeRequest = (id: string) => {
     const updated = requests.map(r => r.id === id ? { ...r, status: 'completed' as const } : r);
     setRequests(updated);
-    localStorage.setItem('babu_demo_requests', JSON.stringify(updated));
+    localStorage.setItem('babu_registration_requests', JSON.stringify(updated));
   };
 
   if (!isAdmin) {
@@ -102,7 +102,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
         </div>
 
         <div className="bg-white border-2 border-slate-100 p-8 rounded-3xl shadow-sm">
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Pending Demo Requests</p>
+          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Pending Registrations</p>
           <p className="text-6xl font-black text-slate-900">{requests.filter(r => r.status === 'pending').length}</p>
           <div className="mt-4 flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
@@ -123,15 +123,15 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
       {/* Request List */}
       <div className="bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden mb-12">
         <div className="p-8 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-           <h3 className="font-black text-slate-900 uppercase tracking-widest text-sm">Customer Requests Management</h3>
+           <h3 className="font-black text-slate-900 uppercase tracking-widest text-sm">Business Registration Management</h3>
            <button onClick={loadData} className="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-widest hover:bg-blue-100 transition-colors">Refresh Live</button>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
               <tr className="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                <th className="px-8 py-4">Customer Details</th>
-                <th className="px-8 py-4">WhatsApp / Device</th>
+                <th className="px-8 py-4">Restaurant & Owner</th>
+                <th className="px-8 py-4">Contact Details</th>
                 <th className="px-8 py-4">Status</th>
                 <th className="px-8 py-4 text-right">Actions</th>
               </tr>
@@ -139,19 +139,19 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ lang }) => {
             <tbody className="divide-y divide-slate-100">
               {requests.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-8 py-20 text-center text-slate-400 font-bold uppercase text-xs">No demo requests yet</td>
+                  <td colSpan={4} className="px-8 py-20 text-center text-slate-400 font-bold uppercase text-xs">No registrations yet</td>
                 </tr>
               ) : (
                 requests.map(request => (
                   <tr key={request.id} className="hover:bg-slate-50 transition-colors group">
                     <td className="px-8 py-6">
-                      <p className="font-black text-slate-900 uppercase text-sm">{request.name}</p>
-                      <p className="text-xs text-slate-500 font-medium">{request.email}</p>
+                      <p className="font-black text-slate-900 uppercase text-sm">{request.restaurantName}</p>
+                      <p className="text-xs text-slate-500 font-medium">Owner: {request.ownerName}</p>
                       <p className="text-[9px] text-slate-400 mt-1">{request.date}</p>
                     </td>
                     <td className="px-8 py-6">
                       <p className="font-bold text-slate-700 text-sm">{request.phone}</p>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-tighter">{request.device}</p>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-tighter">{request.email}</p>
                     </td>
                     <td className="px-8 py-6">
                       <span className={`px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest ${request.status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>

@@ -14,11 +14,21 @@ export interface Testimonial {
   avatar: string;
 }
 
-export interface BookingData {
-  name: string;
-  email: string;
+export interface RegistrationData {
+  restaurantName: string;
+  ownerName: string;
   phone: string;
-  device: string;
+  email: string;
+}
+
+export interface RegistrationRequest {
+  id: string;
+  restaurantName: string;
+  ownerName: string;
+  phone: string;
+  email: string;
+  date: string;
+  status: 'pending' | 'completed';
 }
 
 export interface ReviewReply {

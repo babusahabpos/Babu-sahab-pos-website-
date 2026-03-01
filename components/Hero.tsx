@@ -47,6 +47,11 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
     window.open(apkDownloadUrl, '_blank');
   };
 
+  const scrollToRegistration = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const scrollToReviews = () => {
     document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -73,10 +78,10 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
           
           {/* Special Offer Text */}
           <div className="mb-12 flex flex-col items-center">
-            <div className="text-[#EF4444] text-4xl md:text-7xl font-[1000] uppercase tracking-tighter leading-none">
+            <div className="text-[#FFF700] text-4xl md:text-7xl font-[1000] uppercase tracking-tighter leading-none lemon-yellow-glow animate-blink">
               {t.heroOffer.split('|')[0].trim()}
             </div>
-            <div className="text-[#FFF700] text-3xl md:text-5xl font-[1000] uppercase tracking-tighter leading-none mt-2 lemon-yellow-glow animate-pulse">
+            <div className="text-[#FFF700] text-3xl md:text-5xl font-[1000] uppercase tracking-tighter leading-none mt-2 lemon-yellow-glow animate-blink">
               {t.heroOffer.split('|')[1].trim()}
             </div>
           </div>
@@ -87,15 +92,13 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
 
           <div className="flex flex-col items-center gap-6">
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full">
-              {/* WhatsApp Demo Button */}
-              <a 
-                href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Registration Button */}
+              <button 
+                onClick={scrollToRegistration}
                 className="w-full sm:w-auto flex items-center justify-center px-12 py-6 text-xl font-black rounded-3xl text-slate-900 bg-[#FACC15] hover:bg-yellow-500 shadow-[0_20px_50px_rgba(250,204,21,0.2)] transition-all uppercase tracking-widest hover:-translate-y-1 active:scale-95"
               >
                 {t.demoBtn}
-              </a>
+              </button>
 
               {/* Red Download APK Button */}
               <button 

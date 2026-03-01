@@ -24,6 +24,13 @@
         .lemon-yellow-glow {
             text-shadow: 0 0 20px rgba(255, 247, 0, 0.5);
         }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .animate-blink {
+            animation: blink 0.8s step-end infinite;
+        }
     </style>
 <script type="importmap">
 {
@@ -35,10 +42,12 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-[#121212] text-slate-100">
     <div id="root"></div>
     <!-- Entry point for the application -->
     <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
